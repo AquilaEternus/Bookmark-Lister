@@ -60,14 +60,12 @@ class BookmarkLister(object):
     def double_click_event(self, event):
         url_index = self.bookmark_listbox.curselection()[0]
         if 'http://' in self.user_data["bookmarks"][url_index]:
-            wb.get(
-                using="windows-default").open(self.user_data["bookmarks"][url_index])
+            wb.get().open(self.user_data["bookmarks"][url_index])
         elif 'https://' in self.user_data["bookmarks"][url_index]:
-            wb.get(
-                using="windows-default").open(self.user_data["bookmarks"][url_index])
+            wb.get().open(self.user_data["bookmarks"][url_index])
         else:
             url = 'http://' + self.user_data["bookmarks"][url_index]
-            wb.get(using="windows-default").open(url)
+            wb.get().open(url)
 
     # Set curr_selected_index with the index value of the currently selected url.
     def get_selected_index(self, event):
